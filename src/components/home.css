@@ -1,0 +1,108 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.content {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text-overlay {
+  font-size: 4rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 8px black;
+}
+
+.off {
+    
+  background-color: red;
+  color: white;
+  border: none;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.off:hover {
+  background-color: #cc0000;
+}
+
+.onam {
+  color: white;
+  font-size: 1.8rem;
+  text-shadow: 1px 1px 4px black;
+  max-width: 600px;
+}
+
+.onam p {
+  margin-bottom: 20px;
+}
+
+.onam .on {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.onam .on:hover {
+  background-color: #cc0000;
+}
+
+@media (max-width: 768px) {
+  .text-overlay {
+    font-size: 2.5rem;
+  }
+
+  .onam {
+    font-size: 1.2rem;
+  }
+
+  .onam .on {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .off {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+}

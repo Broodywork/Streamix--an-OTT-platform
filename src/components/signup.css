@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+.mona{
+    display: flex;
+    justify-content: center;
+      align-Items: center;
+      height: 100vh;
+      z-index: 1;
+      position:relative;
+}
+.naan{
+        padding: 30px;
+        background-Color: white;
+        border-Radius: 10px;
+        min-Width: 300px;
+        background-Color:black;
+        color:white;
+        text-align: center;
+}
+@media (max-width: 768px) {
+  .mona {
+    width: 500px;
+  }
+
+  .naan {
+    font-size: 1.2rem;
+  }
+
+  .hero {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .off {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+}

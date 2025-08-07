@@ -1,9 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
+import AppRouter from './router';
+import { AuthProvider } from './context/AuthContext';
 
 function App() {
   return (
-    
+<AuthProvider>
+  <AppRouter/>
+  </AuthProvider>
   );
 }
 
