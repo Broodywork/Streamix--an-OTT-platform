@@ -5,6 +5,7 @@ import Signup from './components/signup';
 import Login from './components/login';
 import Mainpage from './components/mainpage';
 import ProtectedRoute from './components/ProtectedRoute';
+import Description from './components/description';
 
 
 const AppRouter=()=>{
@@ -18,6 +19,12 @@ const AppRouter=()=>{
                 element={
                 <ProtectedRoute>
                 <Mainpage/>
+                </ProtectedRoute>
+}/>
+                <Route path="/home/:id" 
+                element={
+                <ProtectedRoute>
+                <Description/>
                 </ProtectedRoute>
 }/>
             </Routes>
