@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import image from './signup.png';
 import './signup.css';
 import { useNavigate, Link } from 'react-router-dom';
-
+import axios from 'axios';
 
 function Signup() {
   const [email, setEmail] = useState('');
@@ -10,9 +10,12 @@ function Signup() {
    const [confirm_password,setConfirm]=useState('');
    const navigate = useNavigate();
    const [name, setName] = useState('');
+   const [errorMessage, setErrorMessage] = useState('');
+
 
 
   const handleSignup = () => {
+
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 if (!name || !email || !password || !confirm_password) {
     alert('Please fill in all fields.');
@@ -28,9 +31,26 @@ if (!name || !email || !password || !confirm_password) {
         alert('Password do not match');
     return;
     }
-    const user = { email, password ,name};
-    localStorage.setItem(email, JSON.stringify(user));
+    var user = {
+            name: name,
+            email: email,
+            password: password,
+        }
+      axios.post('http://127.0.0.1:8000/api/signup/', user)
+  .then(response => {
+    setErrorMessage('');
     navigate('/login');
+  })
+  .catch(error => {
+    if (error.response && error.response.data && error.response.data.errors) {
+      setErrorMessage(Object.values(error.response.data.errors).join(' '));
+    } else if (error.response && error.response.data) {
+      setErrorMessage(error.response.data.message || 'Unknown error');
+    } else {
+      setErrorMessage('Failed to connect to API');
+    }
+  });
+
   };
 
   return (

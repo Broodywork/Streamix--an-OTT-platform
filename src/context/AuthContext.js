@@ -1,18 +1,29 @@
-import { createContext, useState } from 'react';
+// context/AuthContext.js
+import React, { createContext, useState, useEffect } from "react";
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(() => JSON.parse(localStorage.getItem('user')));
+  const [user, setUser] = useState(null);
+
+  // On app start, load token from localStorage
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const email = localStorage.getItem("email");
+    if (token) {
+      setUser({ email, token });
+    }
+  }, []);
 
   const login = (userData) => {
-    // Save user data to localStorage and context
-    localStorage.setItem("user", JSON.stringify(userData));
+    localStorage.setItem("token", userData.token);
+    localStorage.setItem("email", userData.email);
     setUser(userData);
   };
 
   const logout = () => {
-    localStorage.removeItem("user");
+    localStorage.removeItem("token");
+    localStorage.removeItem("email");
     setUser(null);
   };
 

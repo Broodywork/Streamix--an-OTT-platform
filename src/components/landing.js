@@ -1,5 +1,5 @@
 import React from 'react';
-import backgroundImage from './OTT_Cover_Collage.jpg';
+import backgroundImage from './Avengers.jpg';
 import { useNavigate, Link } from 'react-router-dom';
 import './home.css';
 function Home(){
@@ -16,7 +16,9 @@ const handleit=()=>{
             <img src={backgroundImage} alt="Background"/>
             <div className='content'>
                 <div className='top-bar'>
-                    <div className='text-overlay'>STREAMIX</div>
+                    <div className='text-overlay'>
+                        STREAMIX
+                        </div>
                     <button className='off' onClick={handleit}>Sign In</button>
                     </div>
                     <div className='onam'>

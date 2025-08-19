@@ -1,34 +1,24 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Home from './components/landing';
 import Signup from './components/signup';
 import Login from './components/login';
+import Home from './components/landing';
 import Mainpage from './components/mainpage';
 import ProtectedRoute from './components/ProtectedRoute';
 import Description from './components/description';
+import Change from './components/changepw';
+import History from './components/History';
+import Watchlist from './components/watchlist';
+import { createBrowserRouter } from 'react-router-dom';
 
+const router = createBrowserRouter([
+  { path: '/', element: <Home /> },
+  { path: '/signup', element: <Signup /> },
+  { path: '/login', element: <Login /> },
+  { path: '/home', element: <ProtectedRoute><Mainpage /></ProtectedRoute> },
+  { path: '/description/:id', element: <Description /> },
+  { path: '/changepw', element: <Change /> },
+  { path: '/history', element: <ProtectedRoute><History /></ProtectedRoute> },
+  { path: '/watchlist', element: <ProtectedRoute><Watchlist /></ProtectedRoute> },
+]);
 
-const AppRouter=()=>{
-    return (
-        <Router>
-            <Routes>
-                <Route path="/" element={<Home/>}/>
-                <Route path="/signup" element={<Signup />} />
-                <Route path="/login" element={<Login/>}/>
-                <Route path="/home" 
-                element={
-                <ProtectedRoute>
-                <Mainpage/>
-                </ProtectedRoute>
-}/>
-                <Route path="/home/:id" 
-                element={
-                <ProtectedRoute>
-                <Description/>
-                </ProtectedRoute>
-}/>
-            </Routes>
-        </Router>
-    );
-};
-export default AppRouter;
+export default router;

@@ -60,3 +60,13 @@
 .description-buttons button:hover {
   background-color: #0051cc;
 }
+.video-container {
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: center;     /* center vertically */
+  
+}
+.video-container video {
+  max-width: 70%;  /* so it doesn't overflow */
+ 
+}
