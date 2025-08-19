@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}View Counts{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <h3 class="mb-4">Movie View Counts</h3>
+
+  <!-- Month Filter -->
+  <form class="row g-3 mb-4">
+    <div class="col-md-4">
+      <label for="monthFilter" class="form-label">Filter by Month</label>
+      <select id="monthFilter" class="form-select">
+        <option selected>All Months</option>
+        <option>January</option>
+        <option>February</option>
+        <option>March</option>
+        <option>April</option>
+        <option>May</option>
+        <option>June</option>
+        <option>July</option>
+        <option>August</option>
+        <option>September</option>
+        <option>October</option>
+        <option>November</option>
+        <option>December</option>
+      </select>
+    </div>
+    <div class="col-md-2 d-flex align-items-end">
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+  </form>
+
+  <!-- View Counts Table -->
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Movie Title</th>
+          <th scope="col">View Count</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>F1</td>
+          <td>128</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Superman</td>
+          <td>93</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Coolie</td>
+          <td>74</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Avengers</td>
+          <td>210</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Interstellar</td>
+          <td>184</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

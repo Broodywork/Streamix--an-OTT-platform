@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}User History{% endblock %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h2 class="mb-4">User Watch History</h2>
+    <table class="table table-bordered table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th>#</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Watched Movies</th>
+          <th>Block User</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>john_doe</td>
+          <td>john@example.com</td>
+          <td>
+            <span class="badge bg-primary">Interstellar</span>
+            <span class="badge bg-primary">Inception</span>
+          </td>
+          <td>
+            <button class="btn btn-danger btn-sm">Block</button>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>jane_smith</td>
+          <td>jane@example.com</td>
+          <td>
+            <span class="badge bg-primary">F1</span>
+            <span class="badge bg-primary">Superman</span>
+          </td>
+          <td>
+            <button class="btn btn-danger btn-sm">Block</button>
+          </td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>alex_ray</td>
+          <td>alex@example.com</td>
+          <td><span class="text-muted">No movies watched</span></td>
+          <td>
+            <button class="btn btn-danger btn-sm">Block</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

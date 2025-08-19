@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2 class="mb-4">Edit Movie</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <div class="mb-3">
+            <label for="title" class="form-label">Movie Title</label>
+            <input type="text" name="title" id="title" class="form-control" value="{{ movie.title }}">
+        </div>
+
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea name="description" id="description" rows="4" class="form-control">{{ movie.description }}</textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="thumbnail" class="form-label">Thumbnail</label>
+            <input type="file" name="thumbnail" id="thumbnail" class="form-control">
+            {% if movie.thumbnail %}
+                <img src="{{ movie.thumbnail.url }}" alt="Thumbnail" width="150" class="mt-2">
+            {% endif %}
+        </div>
+
+        <div class="mb-3">
+            <label for="video" class="form-label">Video File</label>
+            <input type="file" name="video" id="video" class="form-control">
+            {% if movie.video %}
+                <p class="mt-2">Current video: {{ movie.video.name }}</p>
+            {% endif %}
+        </div>
+
+        <button type="submit" class="btn btn-success">Update Movie</button>
+    </form>
+{% endblock %}
